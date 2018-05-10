@@ -20,7 +20,7 @@ while True:
     elif (comparison[1], comparison[0]) in comparisons:
         choice = "2"
     else:
-        print("\n\nВыберите:")
+        print("\n\nChoose:")
         for i, thing in enumerate(comparison):
             print("%d. %s" % (i + 1, thing))
         choice = input("> ")
@@ -36,7 +36,7 @@ while True:
         result.append(things[0])
         things = list(set(THINGS[:]) - set(result))
         if len(things) < 2:
-            print("\n\nИтог:")
+            print("\n\nResult:")
             for i, thing in enumerate(result + things):
                 print("%d. %s" % (i + 1, thing))
             exit()
