@@ -1,15 +1,33 @@
 import random
+import sys
+import pathlib
 
 THINGS = [
-  'Thing 1',
-  'Thing 2',
-  'Thing 3'
 ]
 
+if len(sys.argv) == 2:
+    with open(sys.argv[1]) as f:
+        for line in f:
+            THINGS.append(line.strip())
+    path = pathlib.Path(sys.argv[1]).stem
+
 things = THINGS[:]
+
 result = []
 
 comparisons = []
+
+def finish():
+    print("\n\nResult:")
+    for i, thing in enumerate(result + things):
+        print("%d. %s" % (i + 1, thing))
+
+    if path:
+        f = open(path + ".out.txt", 'w')
+        for i, thing in enumerate(result + things):
+            f.write("%d. %s\n" % (i + 1, thing))
+        f.close()
+    exit()
 
 while True:
     choice = None
@@ -36,7 +54,4 @@ while True:
         result.append(things[0])
         things = list(set(THINGS[:]) - set(result))
         if len(things) < 2:
-            print("\n\nResult:")
-            for i, thing in enumerate(result + things):
-                print("%d. %s" % (i + 1, thing))
-            exit()
+            finish()
