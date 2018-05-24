@@ -2,8 +2,7 @@ import random
 import sys
 import pathlib
 
-THINGS = [
-]
+THINGS = []
 
 if len(sys.argv) == 2:
     with open(sys.argv[1]) as f:
@@ -12,22 +11,23 @@ if len(sys.argv) == 2:
     path = pathlib.Path(sys.argv[1]).stem
 
 things = THINGS[:]
-
 result = []
-
 comparisons = []
 
 def finish():
+    save(True)
+    exit()
+
+def save(all=False):
+    things0 = list(result + things) if all else list(result)
+        
     print("\n\nResult:")
-    for i, thing in enumerate(result + things):
-        print("%d. %s" % (i + 1, thing))
 
     if path:
-        f = open(path + ".out.txt", 'w')
-        for i, thing in enumerate(result + things):
-            f.write("%d. %s\n" % (i + 1, thing))
-        f.close()
-    exit()
+        with open(path + ".out.txt", 'w') as f:
+            for i, thing in enumerate(things0):
+                print(" %d. %s" % (i + 1, thing))
+                f.write("%d. %s\n" % (i + 1, thing))
 
 while True:
     choice = None
@@ -53,5 +53,6 @@ while True:
     if len(things) < 2:
         result.append(things[0])
         things = list(set(THINGS[:]) - set(result))
+        save()
         if len(things) < 2:
             finish()
