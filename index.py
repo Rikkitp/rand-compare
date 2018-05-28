@@ -20,7 +20,7 @@ def finish():
 
 def save(all=False):
     things0 = list(result + things) if all else list(result)
-        
+
     print("\n\nResult:")
 
     if path:
@@ -38,7 +38,7 @@ while True:
     elif (comparison[1], comparison[0]) in comparisons:
         choice = "2"
     else:
-        print("\n\nChoose:")
+        print("\n\nChoose (%d left to #%d):" % (len(things), len(result) + 1))
         for i, thing in enumerate(comparison):
             print("%d. %s" % (i + 1, thing))
         choice = input("> ")
