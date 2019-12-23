@@ -1,0 +1,23 @@
+{
+  "name": "rand-compare",
+  "version": "1.0.0",
+  "description": "This script serve to help organize order of some thing (tasks, or such). It ask you choose only between two things at once. So you don't need load in you head ALL list.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rikkitp/rand-compare.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rikkitp/rand-compare/issues"
+  },
+  "homepage": "https://github.com/Rikkitp/rand-compare#readme",
+  "dependencies": {
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  }
+}

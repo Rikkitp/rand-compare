@@ -1,2 +1,4 @@
 *.txt
 .idea
+node_modules
+.vscode
